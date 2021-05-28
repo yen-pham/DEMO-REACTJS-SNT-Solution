@@ -1,0 +1,87 @@
+.body {
+    height: 100%;
+    font-family: 'Josefin Sans', sans-serif;}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.list-animals {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+.animal {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+
+}
+.animal:hover .photo {
+    width: 250px;
+}
+
+.animal .photo {
+    width: 200px;
+    height: 200px;
+}
+.name-animal {
+    position: absolute;
+    bottom: 0;
+    background: white;
+    padding: 5px 25px;
+    text-align: center;
+    border-top-right-radius: 35px;
+}
+.name-animal p {
+    margin: 0;
+}
+.species {
+    font-weight: 600;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.pagination {
+    margin-top: 25px;
+}
+.pagination ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.pagination ul li{
+    margin-right: 10px;
+    cursor: pointer;
+    padding: 5px;
+
+}
+.page-active {
+    border: 1px solid gainsboro;
+}
+.loading {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading img {
+    width: 50%;
+    height: auto;
+}
+.logout {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
+.logout img {
+    cursor: pointer;
+}
+.input-page {
+    width: 70px;
+    border: 1px solid;
+}

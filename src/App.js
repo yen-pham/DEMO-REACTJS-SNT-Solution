@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Login from './component/login'
+import { connect } from 'react-redux';
+import { checkAuthenAction, getAnimalsAction } from './redux/action';
+import "./App.css"
+import Animals from './component/animals';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  componentDidMount() {
+    this.props.checkAuthen();
+  }
+  
+  render() {
+    return this.props.isAuthen? <Animals/>:<Login/>
+  }
 }
+const mapStateToProps = (state) => {
+  return({
+  loading: state?.loading,
+  isAuthen : state?.authen
+})};
+const mapDispatchToProps = (dispatch) => {
+  return {  
+    checkAuthen: () => dispatch(checkAuthenAction()),
+  };
+};
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
